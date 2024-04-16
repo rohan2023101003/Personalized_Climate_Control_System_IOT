@@ -1,6 +1,5 @@
 // Specify your ThingSpeak channel ID and field ID
 const channelID = '2469286';
-// const fieldID = '6';
 const apiKey = '9XU79MQ2695GW32J'; // Only if your channel is private
 
 // Array of field IDs
@@ -35,8 +34,10 @@ async function fetchDataForFieldIDs(fieldIDs) {
     }
 }
 
-// Call the function to fetch data for each field ID when the window loads
+// Call the function to fetch data for each field ID every 2 seconds
 window.onload = () => {
     fetchDataForFieldIDs(fieldIDs);
+    setInterval(() => {
+        fetchDataForFieldIDs(fieldIDs);
+    }, 5000); // 2000 milliseconds = 2 seconds
 };
-
