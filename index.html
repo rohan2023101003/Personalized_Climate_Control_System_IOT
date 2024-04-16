@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Climate Control Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #2d388a, #00aeef);
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            animation: fadeIn ease 2s;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        .grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        section {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .measurement {
+            border: 1px solid #ef4136;
+            padding: 15px;
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ef4136, #fbb040);
+            width: calc(100% - 20px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+        }
+
+        .graph-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .graph-box, .data-box {
+            width: calc(50% - 10px);
+            margin: 5px;
+        }
+
+        .field1, .field2, .field3, .field4, .field5, .field6{
+            background: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        h1, h2 {
+            font-family: "Poppins", sans-serif;
+            color: #004085;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Climate Control System</strong></li>
+            <li><a href="javascript:void(0);" onclick="click_on()" role="button">Turn On</a></li>
+            <li><a href="javascript:void(0);" onclick="click_off()" role="button">Turn Off</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <h1>CLIMATE CONTROL</h1>
+                <div class="measurement">
+                    <h2>Temperature</h2>
+                    <div class="graph-container">
+                        <div class="graph-box">
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=50&yaxismin=0"></iframe>
+                        </div>
+                        <div class="graph-box">
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=50&yaxismin=0"></iframe>
+                        </div>
+                    </div>
+                    <div class="graph-container">
+                        <div class="field1">Temperature 1 Data</div>
+                        <div class="field3">Temperature 2 Data</div>
+                    </div>
+                </div>
+                <div class="measurement">
+                    <h2>Humidity</h2>
+                    <div class="graph-container">
+                        <div class="graph-box">
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=50&yaxismin=0"></iframe>
+                        </div>
+                        <div class="graph-box">
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=50&yaxismin=0"></iframe>
+                        </div>
+                    </div>
+                    <div class="graph-container">
+                        <div class="field2">Humidity 1 Data</div>
+                        <div class="field4">Humidity 2 Data</div>
+                    </div>
+                </div>
+                <div class="measurement">
+                    <h2>Pressure</h2>
+                    <div class="graph-container">
+                        <div class="graph-box">
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=1500&yaxismin=0"></iframe>
+                        </div>
+                        <div class="field5">Pressure Data</div>
+                    </div>
+                </div>
+                <div class="measurement">
+                    <h2>Altitude</h2>
+                    <div class="graph-container">
+                        <div class="graph-box">
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=1000&yaxismin=0"></iframe>
+                        </div>
+                        <div class="field6">Altitude Data</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
