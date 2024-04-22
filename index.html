@@ -26,7 +26,7 @@
         nav ul {
             list-style-type: none;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center horizontally */
             align-items: center;
             padding: 0;
             margin-bottom: 20px;
@@ -43,11 +43,18 @@
         nav a:hover {
             background-color: #0056b3;
         }
+        .container-fluid {
+            display: flex;
+            justify-content:center;
+            align-items: center;
+
+        }
 
         .container {
             animation: fadeIn ease 2s;
             background: #ffffff;
             border-radius: 8px;
+            align-items: center;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -81,10 +88,23 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             color: #ffffff;
         }
+        .average1, .average2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; /* Make sure it takes the full width */
+            padding: 10px; /* Add padding for better visual appearance */
+            font-size: 24px; /* Larger font for better readability */
+            font-weight: bold; /* Make the text bold */
+            color: black;
+            font-weight: bold;
+        }
+        
 
         .graph-container {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .graph-box, .data-box {
@@ -120,15 +140,13 @@
 <body>
     <nav class="container-fluid">
         <ul>
-            <li><strong>Climate Control System</strong></li>
-            <li><a href="javascript:void(0);" onclick="click_on()" role="button">Turn On</a></li>
-            <li><a href="javascript:void(0);" onclick="click_off()" role="button">Turn Off</a></li>
+            <li style="font-size: 30px;"><strong>Climate Control System</strong></li>
         </ul>
     </nav>
     <main class="container">
         <div class="grid">
             <section>
-                <h1>CLIMATE CONTROL</h1>
+                <h1>SENSOR  DATA</h1>
                 <div class="measurement">
                     <h2>Temperature</h2>
                     <div class="graph-container">
@@ -143,20 +161,30 @@
                         <div class="field1">Temperature 1 Data</div>
                         <div class="field3">Temperature 2 Data</div>
                     </div>
+                    <div class="graph-container">
+                        <div class="average1">
+                            average_value: <span id="avgTemperature"></span>
+                        </div>
+                    </div>  
                 </div>
                 <div class="measurement">
                     <h2>Humidity</h2>
                     <div class="graph-container">
                         <div class="graph-box">
-                            <iframe src="https://thingspeak.com/channels/2469286/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=75&yaxismin=0"></iframe>
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=90&yaxismin=0"></iframe>
                         </div>
                         <div class="graph-box">
-                            <iframe src="https://thingspeak.com/channels/2469286/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=75&yaxismin=0"></iframe>
+                            <iframe src="https://thingspeak.com/channels/2469286/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=90&yaxismin=0"></iframe>
                         </div>
                     </div>
                     <div class="graph-container">
                         <div class="field2">Humidity 1 Data</div>
                         <div class="field4">Humidity 2 Data</div>
+                    </div>
+                    <div class="graph-container">
+                        <div class="average2">
+                            average_value: <span id="avgHumidity"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="measurement">
@@ -166,15 +194,6 @@
                             <iframe src="https://thingspeak.com/channels/2469286/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=1500&yaxismin=0"></iframe>
                         </div>
                         <div class="field5">Pressure Data</div>
-                    </div>
-                </div>
-                <div class="measurement">
-                    <h2>Altitude</h2>
-                    <div class="graph-container">
-                        <div class="graph-box">
-                            <iframe src="https://thingspeak.com/channels/2469286/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=1000&yaxismin=0"></iframe>
-                        </div>
-                        <div class="field6">Altitude Data</div>
                     </div>
                 </div>
             </section>
