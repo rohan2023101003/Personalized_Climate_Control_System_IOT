@@ -59,7 +59,8 @@ async function fetchDataForAverages() {
 // Initialize data on page load
 window.onload = () => {
     fetchDataForFieldIDs(fieldIDs);
-    fetchDataForAverages();
+    setInterval(() => {
+        fetchDataForFieldIDs(fieldIDs);
+    }, 5000); // 2000 milliseconds = 2 seconds
 };
-
 
