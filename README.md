@@ -50,7 +50,7 @@ The **Personalized Climate Control System** is designed to create a comfortable 
 
 ## Data Visualization
 - A **web dashboard** displays real-time sensor data and system status for user interaction.
-- https://rohan2023101003.github.io/iot_PCCS_/
+- https://rohan2023101003.github.io/Personalized_Climate_Control_System_IOT/
 
 
 ---
